@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortnite Item Shop</title>
+    <link rel="stylesheet" href="index.css">
+    <script defer src="index.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Fortnite Item Shop</div>
+            <nav>
+                <ul>
+                    <li><a href="#shop">Shop</a></li>
+                    <li><a href="#random-item">Random Item</a></li>
+                    <li><a href="#vote">Vote</a></li>
+                </ul>
+            </nav>
+            <div class="user-section">
+                <span id="cart-count">0</span>
+                <button onclick="toggleCart()">Cart</button>
+            </div>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <h1>Welcome to the Fortnite Item Shop!</h1>
+        <div class="countdown">
+            <p>Next Item Refresh in: <span id="timer">00:00:00</span></p>
+        </div>
+    </section>
+    
+    <section id="shop" class="shop">
+        <h2>Shop Items</h2>
+        <div class="filters">
+            <input type="text" id="search" placeholder="Search items..." oninput="filterItems()">
+            <select id="category-filter" onchange="filterItems()">
+                <option value="all">All Categories</option>
+                <option value="skins">Skins</option>
+                <option value="gliders">Gliders</option>
+                <option value="weapons">Weapons</option>
+                <option value="emotes">Emotes</option>
+            </select>
+            <button onclick="clearFilters()">Clear Filters</button>
+        </div>
+        <div class="items-container" id="items-container"></div>
+    </section>
+
+    <section id="random-item" class="random-item">
+        <h3>Random Item</h3>
+        <button onclick="showRandomItem()">Show Random Item</button>
+        <div id="random-item-display"></div>
+    </section>
+    
+    <section id="vote" class="vote-section">
+        <h3>Vote for Your Favorite Item</h3>
+        <select id="vote-item"></select>
+        <button onclick="voteForItem()">Vote</button>
+        <div id="vote-result"></div>
+    </section>
+
+    <div class="cart-modal" id="cart">
+        <div class="cart-content">
+            <span class="close" onclick="toggleCart()">&times;</span>
+            <h2>Your Cart</h2>
+            <div id="cart-items"></div>
+            <div>Total: <span id="total-price">0</span> V-Bucks</div>
+            <button class="checkout" onclick="checkout()">Checkout</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Fortnite Item Shop. All rights reserved.</p>
+    </footer>
+</body>
+</html>
